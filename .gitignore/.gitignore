@@ -1,0 +1,44 @@
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+var stdin_input = "";
+
+process.stdin.on("data", function (input) {
+    stdin_input += input;                             
+});
+
+process.stdin.on("end", function () {
+   main(stdin_input);
+});
+
+function main(input) {
+   var lineinput=input.split("\n");
+   var anzahl=lineinput[0];
+var erg=0;
+
+   for(var x = 0; x < anzahl; x++)
+    {
+        var y=x+1
+        var string=lineinput[y].split(" ");
+        
+        if (string[0].length == string[1].length)
+        {
+            var b=[];
+            var c=[];
+            
+            for(var z = 0;z<string[0].length;z++)
+            {
+            b.push(string[0].substring(z,z+1));
+            c.push(string[1].substring(z,z+1));
+            }
+            b.sort();
+            c.sort();
+    
+            if(b.toString()==c.toString())
+            {
+           console.log("YES"); 
+            }else{
+           console.log("NO"); 
+            }
+        }
+    }
+}
